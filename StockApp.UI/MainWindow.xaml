@@ -1,0 +1,22 @@
+﻿<Window x:Class="StockApp.UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StockApp.UI"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="Dashboard" Height="450" Width="800">
+    <Grid>
+        <StackPanel>
+            <ListBox x:Name="ProductListView" DisplayMemberPath="Name" Height="200" />
+
+            <StackPanel Orientation="Horizontal">
+                <TextBox x:Name="ProductNameTextBox" Width="200" />
+                <Button Content="Add" Click="AddProductButton_Click" />
+                <Button Content="Update" Click="UpdateProductButton_Click" />
+                <Button Content="Delete" Click="DeleteProductButton_Click" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
