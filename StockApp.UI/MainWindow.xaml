@@ -7,16 +7,30 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Title="Dashboard" Height="450" Width="800">
-    <Grid>
-        <StackPanel>
-            <ListBox x:Name="ProductListView" DisplayMemberPath="Name" Height="200" />
+    <Grid ShowGridLines="True">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid Margin="10" Background="LightGray">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
 
-            <StackPanel Orientation="Horizontal">
-                <TextBox x:Name="ProductNameTextBox" Width="200" />
-                <Button Content="Add" Click="AddProductButton_Click" />
-                <Button Content="Update" Click="UpdateProductButton_Click" />
-                <Button Content="Delete" Click="DeleteProductButton_Click" />
-            </StackPanel>
-        </StackPanel>
+            <Button Content="ITEM SCAN" Click="ItemScan_Click" Background="LightGoldenrodYellow" Grid.Row="0" Margin="5" Padding="5" FontSize="30" FontWeight="Bold"/>
+            <Button Content="PRODUCT LIST" Click="ProductList_Click" Grid.Row="1" Background="LightGreen" Margin="5"  Padding="5" FontSize="30" FontWeight="Bold"/>
+            <Button Content="IMPORT ITEMs" Background="LightBlue" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Row="2" Margin="5" Click="ImportFromFile_Click" Padding="5" FontSize="30" FontWeight="Bold"/>
+           
+            <Button Content="AYARLAR" Background="Gray" Visibility="Collapsed" Grid.Row="4" Margin="5" Padding="5" FontSize="15" FontWeight="Bold"/>
+        </Grid>
+
+        <Label Name="lblLoading" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" FontWeight="Bold" FontSize="30" Visibility="Hidden">Please wait LOADING...</Label>
+        
+        <Frame Name="frameControl" Grid.Column="1" Margin="10" NavigationUIVisibility="Hidden"></Frame>
+
     </Grid>
 </Window>

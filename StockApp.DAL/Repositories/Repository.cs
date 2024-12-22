@@ -16,11 +16,11 @@ namespace StockApp.DAL.Repositories
             _dbSet = _context.Set<T>();
         }
 
-        public IEnumerable<T> GetAll() => _dbSet.Where(w=>w.IsActive).ToList();
+        public async Task<IEnumerable<T>> GetAllAsync() => await _dbSet.Where(w=>w.IsActive).ToListAsync();
 
-        public T GetById(int id) => _dbSet.Find(id);
+        public async Task<T> GetByIdAsync(int id) => await _dbSet.FindAsync(id);
 
-        public IEnumerable<T> Find(Expression<Func<T, bool>> predicate) => _dbSet.Where(predicate).ToList();
+        public async Task<IEnumerable<T>> FindAsync(Expression<Func<T, bool>> predicate) => await _dbSet.Where(predicate).ToListAsync();
 
         public void Add(T entity)
         {
@@ -40,6 +40,11 @@ namespace StockApp.DAL.Repositories
             Update(entity);
         }
 
-        public void Save() => _context.SaveChanges();
+        public async Task SaveAsync() => await _context.SaveChangesAsync();
+
+        public void AddRange(IEnumerable<T> entity)
+        {
+           _dbSet.AddRange(entity);
+        }
     }
 }

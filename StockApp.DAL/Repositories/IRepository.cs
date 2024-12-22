@@ -5,12 +5,13 @@ namespace StockApp.DAL.Repositories
 {
     public interface IRepository<T> where T : BaseEntity
     {
-        IEnumerable<T> GetAll();
-        T GetById(int id);
-        IEnumerable<T> Find(Expression<Func<T, bool>> predicate);
+        Task<IEnumerable<T>> GetAllAsync();
+        Task<T> GetByIdAsync(int id);
+        Task<IEnumerable<T>> FindAsync(Expression<Func<T, bool>> predicate);
         void Add(T entity);
+        void AddRange(IEnumerable<T> entity);
         void Update(T entity);
         void Delete(T entity);
-        void Save();
+        Task SaveAsync();
     }
 }

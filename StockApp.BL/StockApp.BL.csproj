@@ -8,6 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="EPPlus" Version="7.5.2" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\StockApp.DAL\StockApp.DAL.csproj" />
     <ProjectReference Include="..\StockApp.Entities\StockApp.Entities.csproj" />
   </ItemGroup>
